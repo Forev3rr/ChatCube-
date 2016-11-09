@@ -1,19 +1,4 @@
-header{
-	height:2%;
-    padding: 0;
-	color: #e5e5e5;
-	background: #ff5d5d;
-}
-.header_left{
-	float:left;
-	font-family: bariol
-	}
-.header_right{
-	float:right;
-	font-family: bariol
-	}
 body {
-	height:100%;
     font-family: bariol;
     margin: 0;
     padding: 0;
@@ -21,9 +6,21 @@ body {
     background: #ff5d5d;
 }
 
+.header_left{
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+
+.header_right{
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
 /* a class for the "logo" text */
 .logo{
-    margin: 10px;
+	margin: 10px;
     font-size: 50px;
     text-align: center;
 }
@@ -76,30 +73,40 @@ input[type=submit]{
 	background: #424242;
 }
 
-article{
-	height:24%;
-	background: #ff5d5d;
-	clear:both;
-}
-
-footer{
-	height:25%;;
-	background: #ff5d5d;
-	clear:both;
-}
-.copyright{
-	float:right
-}
-
 /* when the submit button is clicke the colors are swapped */
 input[type=submit]:focus{
 	color: #424242;
 	background: #e5e5e5;
 }
 
+article{
+	height:24%;
+	background: none;
+	clear:both;
+}
+
+footer{
+	height:20%;;
+	background: none;
+	clear:both;
+}
+.copyright_right{
+	position: absolute;
+	right: 3;
+	bottom: 3;
+
+}
+
+.copyright_left{
+	position: absolute;
+	left: 3;
+	bottom: 3;
+
+}
+
 /* Added Custom Font */ 
 @font-face{
 	font-family: bariol;
-	src: url(/resources/bariol_regular-webfont.ttf);
+	src: url(./resources/bariol_regular-webfont.ttf);
 }
 
