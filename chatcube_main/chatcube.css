@@ -1,7 +1,21 @@
+header{
+	height:2%;
+    padding: 0;
+	color: #e5e5e5;
+	background: #ff5d5d;
+}
+.header_left{
+	float:left;
+	font-family: bariol
+	}
+.header_right{
+	float:right;
+	font-family: bariol
+	}
 body {
+	height:100%;
     font-family: bariol;
     margin: 0;
-    margin-top: 10%;
     padding: 0;
     color: #e5e5e5;
     background: #ff5d5d;
@@ -62,6 +76,21 @@ input[type=submit]{
 	background: #424242;
 }
 
+article{
+	height:24%;
+	background: #ff5d5d;
+	clear:both;
+}
+
+footer{
+	height:25%;;
+	background: #ff5d5d;
+	clear:both;
+}
+.copyright{
+	float:right
+}
+
 /* when the submit button is clicke the colors are swapped */
 input[type=submit]:focus{
 	color: #424242;
@@ -73,3 +102,4 @@ input[type=submit]:focus{
 	font-family: bariol;
 	src: url(/resources/bariol_regular-webfont.ttf);
 }
+
