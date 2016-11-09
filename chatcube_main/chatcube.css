@@ -1,0 +1,75 @@
+body {
+    font-family: bariol;
+    margin: 0;
+    margin-top: 10%;
+    padding: 0;
+    color: #e5e5e5;
+    background: #ff5d5d;
+}
+
+/* a class for the "logo" text */
+.logo{
+    margin: 10px;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* makes a centered block for the login screen */
+.login_block {
+	margin:auto !important;
+	padding:10px;
+	text-align: center;
+	width: 350px;
+	height: 200px;
+	border-radius: 25px;
+	color: #424242;
+	background: #e5e5e5;
+	box-shadow: 0px 0px 10px #424242;
+}
+
+/* input uses a seperate font from the body font must be changed again */
+input{
+	font-family: bariol;
+	font-size: 25px;
+}
+
+/* Gets rid of blue border around input while being used */
+input:focus{
+	outline-width: 0;
+}
+
+/* Changes the ugly input text boxes to our nice ones */
+input[type=text], input[type=password]{
+	margin-top: 20px;
+	padding: 10px;
+	background: none;
+	width: 200;
+	height: 40;
+	border: 0;
+	border-bottom: solid 2px #424242;
+}
+
+/* same as above but for the submit button */
+input[type=submit]{
+	float: right;
+	margin-top: 5px;
+	margin-right: 18px;
+	width: 100px;
+	height: 40;
+	border: 0;
+	border-radius: 15px;
+	color: #e5e5e5;
+	background: #424242;
+}
+
+/* when the submit button is clicke the colors are swapped */
+input[type=submit]:focus{
+	color: #424242;
+	background: #e5e5e5;
+}
+
+/* Added Custom Font */ 
+@font-face{
+	font-family: bariol;
+	src: url(/resources/bariol_regular-webfont.ttf);
+}
