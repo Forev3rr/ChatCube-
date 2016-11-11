@@ -1,15 +1,19 @@
 <!DOCTYPE: html>
 <html>
 	<head>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 		<link type="text/css" href="chatcube.css" rel="stylesheet"/>
 		<title>ChatCube+</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 		<script>
 			$(document).ready(function(){
-				$("#message").keyup(function(event){
+				$("#message").keydown(function(event){
 					if(event.keyCode == 13){
 						$("#send").click();
-					}
+					}	
 				})
 			});
 		</script>
@@ -17,30 +21,53 @@
 			$(document).ready(function(){
 				$("#message").keyup(function(event){
 					if(event.keyCode == 13){
-						$("#message").val('')
-					}
+						$("#message").val('');
+					}	
 				})
 			});
 		</script>
-		
+		<script>
+			function sendFunction(value) {
+				if($.trim(value) != ''){
+					document.getElementById('conversation').value +=
+					document.getElementById('message').value + '\n' + Date() + '\n';
+				}
+				else{
+					alert("bad");
+				}
+			};
+		</script>
 	</head>
 	
 	<body>
+		
 		<div class = "chat_block">
-			<div id ="conversation" class = "chat_history">
-
-			</div>
+			
+			<textarea id ="conversation" class = "chat_conversation" readonly></textarea>
+			
 			<div class = "white_space">
 			</div>
 			<form action="/" 
 				method="post">
 				
-				<textarea id="message" name="message" rows="6" cols="30"></textarea>
+				<textarea class= "message_textarea" id="message" name="message" rows="6" cols="30"></textarea>
 	
-				<button type="button" id="send"
-						onclick = "document.getElementById('conversation').innerHTML += 
-				document.getElementById('message').value">Send</button>
+				<button type="button" id="send" onclick = "sendFunction(document.getElementById('message').value)">Send</button>
+				
+				 <div class="dropdown">
+					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Font Size
+						<span class="caret"></span></button>
+						<ul class="dropdown-menu">
+							<li onclick = "document.getElementById('conversation').style.fontSize = 'x-small';
+								document.getElementById('message').style.fontSize = 'x-small'"><a href="#">Small</a></li>
+							<li onclick = "document.getElementById('conversation').style.fontSize = 'medium';
+								document.getElementById('message').style.fontSize = 'medium'"><a href="#">Medium</a></li>
+							<li onclick = "document.getElementById('conversation').style.fontSize = 'x-large';
+								document.getElementById('message').style.fontSize = 'x-large'"><a href="#">Large</a></li>
+						</ul>
+				</div>
 			</form>
+			
 		</div>
 		
 	</body>

@@ -54,7 +54,8 @@ body {
 	transform: translateY(-50%);
 }
 
-.chat_history{
+/*area for the whole conversation*/
+.chat_conversation{
 	margin:auto !important;
 	padding:10px;
 	text-align: left;
@@ -63,9 +64,20 @@ body {
 	height: 500px;
 	border-radius: 25px;
 	color: #424242;
-	background: White;
+	background: white;
+	resize: none;
+}
+/* area where you can write your messages */
+.message_textarea{
+
+	height: 60px;
+	width: 300px;
+	font-family: bariol;
+	font-size: 25px;
+	resize: none;
 }
 
+/* used to create spacing */
 .white_space{
 	height: 50px;
 }
@@ -110,14 +122,7 @@ input[type=submit]:focus{
 	background: #e5e5e5;
 }
 
-textarea{
-
-	height: 60px;
-	font-family: bariol;
-	font-size: 25px;
-	resize: auto;
-}
-
+/* same as input*/
 button{
 	font-family: bariol;
 	font-size: 25px;
@@ -134,7 +139,7 @@ button{
 
 article{
 	height:24%;
-	background: none;
+	background:none;
 	clear:both;
 }
 
