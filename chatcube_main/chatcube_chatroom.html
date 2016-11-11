@@ -1,0 +1,47 @@
+<!DOCTYPE: html>
+<html>
+	<head>
+		<link type="text/css" href="chatcube.css" rel="stylesheet"/>
+		<title>ChatCube+</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#message").keyup(function(event){
+					if(event.keyCode == 13){
+						$("#send").click();
+					}
+				})
+			});
+		</script>
+		<script>
+			$(document).ready(function(){
+				$("#message").keyup(function(event){
+					if(event.keyCode == 13){
+						$("#message").val('')
+					}
+				})
+			});
+		</script>
+		
+	</head>
+	
+	<body>
+		<div class = "chat_block">
+			<div id ="conversation" class = "chat_history">
+
+			</div>
+			<div class = "white_space">
+			</div>
+			<form action="/" 
+				method="post">
+				
+				<textarea id="message" name="message" rows="6" cols="30"></textarea>
+	
+				<button type="button" id="send"
+						onclick = "document.getElementById('conversation').innerHTML += 
+				document.getElementById('message').value">Send</button>
+			</form>
+		</div>
+		
+	</body>
+</html>
