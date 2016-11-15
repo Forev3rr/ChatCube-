@@ -1,7 +1,7 @@
 <!DOCTYPE: html>
 <html>
 	<head>
-		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+		<!--<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">-->
 		<link type="text/css" href="chatcube.css" rel="stylesheet"/>
 		<title>ChatCube+</title>
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -41,23 +41,37 @@
 	
 	<body>
 		
+		<div class="header_left"> Welcome to ChatCube+.</div>
+		
+		<div class="header_right">
+			<a href="Help.html" target="_self">Help</a>
+		</div>
+		<article class="abovemessages"> </article>
+
 		<div class = "chat_block">
-			
+			<div class="messages_div">
 			<textarea id ="conversation" class = "chat_conversation" readonly></textarea>
-			
-			<div class = "white_space">
 			</div>
+			<!-- <div class = "white_space">
+			</div> -->
+			
+			<div class="message-send-div">
+			
 			<form action="/" 
 				method="post">
 				
-				<textarea class= "message_textarea" id="message" name="message" rows="6" cols="30"></textarea>
+				<textarea class= "message_textarea"
+				id="message"
+				name="message"
+				placeholder="Type Here..."></textarea>
 	
 				<button type="button" id="send" onclick = "sendFunction(document.getElementById('message').value)">Send</button>
 				
+				 </form>
 				 <div class="dropdown">
-					<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Font Size
+					<button class="dropdown-button"style="font-size:18px">Font Size
 						<span class="caret"></span></button>
-						<ul class="dropdown-menu">
+						<ul class="dropdown-content">
 							<li onclick = "document.getElementById('conversation').style.fontSize = 'x-small';
 								document.getElementById('message').style.fontSize = 'x-small'"><a href="#">Small</a></li>
 							<li onclick = "document.getElementById('conversation').style.fontSize = 'medium';
@@ -66,8 +80,7 @@
 								document.getElementById('message').style.fontSize = 'x-large'"><a href="#">Large</a></li>
 						</ul>
 				</div>
-			</form>
-			
+			</div>
 		</div>
 		
 	</body>
