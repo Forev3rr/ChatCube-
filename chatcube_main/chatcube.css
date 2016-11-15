@@ -161,27 +161,36 @@ article{
 }
 
 .dropdown-button{
-	position: absolute;
-	bottom: 10px;
-	right: 10px;
+	cursor: pointer;
 }
+
 .dropdown{
-	z-index: 1;
-	position: relative;
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
 	display: inline-block;
 }
 
 .dropdown-content{
 	display: none;
 	position: absolute;
+	bottom: 10px;
 	background: #e5e5e5;
 	width: 100px;
 	padding: 10px;
+	box-shadow: 0px 0px 5px #000000;
+	border-radius: 15px;
 }
 
 .dropdown:hover .dropdown-content{
 	display: block;
 }
+
+.dropdown-content li{
+	list-style-type: none;
+}
+
+
 
 footer{
 	height:20%;;
