@@ -7,7 +7,7 @@ a brief description of the changes you've made.
 
 To run ChatCube backend
 
-git clone 
+git clone https://github.com/Forev3rr/ChatCube-.git
 cd Chatcube
 sudo easy_install pip (on MAC)
 pip install django==1.9.2
