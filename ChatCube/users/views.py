@@ -4,7 +4,7 @@ from rest_framework import status, views
 from django.contrib.auth import authenticate, login, logout
 import json
 from .models import User, Group, CustomUser
-from .permissions import IsAccountOwner
+# from .permissions import IsAccountOwner
 from .serializers import UserSerializer, GroupSerializer, CustomUserSerializer
 
 
@@ -45,14 +45,14 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     serializer_class = CustomUserSerializer
     queryset = CustomUser.objects.all()
 
-    def get_permissions(self):
-        if self.request.method in permissions.SAFE_METHODS:
-            return (permissions.AllowAny(),)
-
-        if self.request.method == 'POST':
-            return (permissions.AllowAny(),)
-
-        return (permissions.IsAuthenticated(), IsAccountOwner(),)
+    # def get_permissions(self):
+    #     if self.request.method in permissions.SAFE_METHODS:
+    #         return (permissions.AllowAny(),)
+    #
+    #     if self.request.method == 'POST':
+    #         return (permissions.AllowAny(),)
+    #
+    #     return (permissions.IsAuthenticated(), IsAccountOwner(),)
 
     def create(self, request):
         serializer = self.serializer_class(data=request.data)

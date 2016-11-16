@@ -28,6 +28,8 @@ class CustomUserManager(BaseUserManager):
         account = self.create_user(email, password, **kwargs)
 
         account.is_admin = True
+        account.is_staff = True
+        account.is_superuser=True
         account.save()
         return account
 
@@ -98,7 +100,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
         return self.username
 
     def __unicode__(self):
-        return self.email
+        return self.username
 
 class User(models.Model):
     # auto Id
@@ -115,7 +117,7 @@ class Group(models.Model):
     # auto Id
     name = models.CharField(max_length=255)
     password = models.CharField(max_length=255)
-    users = models.ForeignKey(User,
+    users = models.ForeignKey(CustomUser,
                               on_delete=models.CASCADE,
                               related_name='users')
 

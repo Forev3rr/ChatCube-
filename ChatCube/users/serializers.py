@@ -13,7 +13,6 @@ class CustomUserSerializer(serializers.ModelSerializer):
                   'username',
                   'email',
                   'auth_level',
-                  'is_staff',
                   'is_active',
                   'password',)
         view_name = 'customuser-detail'

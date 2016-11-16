@@ -30,8 +30,13 @@ ALLOWED_HOSTS = []
 
 # Application definition
 
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]
+
 INSTALLED_APPS = [
     'django.contrib.admin',
+    # 'django.contrib.admin.apps.SimpleAdminConfig',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
@@ -42,11 +47,23 @@ INSTALLED_APPS = [
     'users',
 ]
 
-REST_FRAMEWORK = {
-    'DEFAULT_AUTHENTICATION_CLASSES': (
-        'rest_framework.authentication.BasicAuthentication',
-    )
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_AUTHENTICATION_CLASSES': (
+#         'rest_framework.authentication.BasicAuthentication',
+#     )
+# }
+
+# STATIC_URL = '/static/'
+# STATIC_ROOT = 'staticfiles'
+#
+# TEMPLATE_DIRS = [
+#     os.path.join(BASE_DIR, 'templates'),
+# ]
+#
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, 'dist/static'),
+#     os.path.join(BASE_DIR, 'static'),
+# ]
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
