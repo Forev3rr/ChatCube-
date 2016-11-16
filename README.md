@@ -8,11 +8,19 @@ a brief description of the changes you've made.
 To run ChatCube backend
 
 git clone https://github.com/Forev3rr/ChatCube-.git
+
 cd Chatcube
+
 sudo easy_install pip (on MAC)
+
 pip install django==1.9.2
+
 pip install djangorestframework
+
 pip install djangorestframework-jwt
+
 ./manage.py migrate
+
 ./manage.py runserver
+
 go to localhost:8000/ in browser to see API
