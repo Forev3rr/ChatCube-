@@ -13,11 +13,7 @@ cd Chatcube
 
 sudo easy_install pip (on MAC)
 
-pip install django==1.9.2
-
-pip install djangorestframework
-
-pip install djangorestframework-jwt
+pip install requirements.txt
 
 ./manage.py migrate
 
