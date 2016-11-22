@@ -1,6 +1,6 @@
 from __future__ import unicode_literals
 from django.db import models
-from users.models import User, CustomUser
+from users.models import  CustomUser
 
 # Create your models here.
 
@@ -13,6 +13,8 @@ class Room(models.Model):
                               default=1,)
     participants = models.ManyToManyField(CustomUser,
                               related_name='participants')
+    date = models.DateTimeField()
+
 
     def __str__(self):
         return self.name

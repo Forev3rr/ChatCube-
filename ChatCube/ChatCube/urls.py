@@ -23,27 +23,26 @@ from rest_framework_jwt.views import obtain_jwt_token
 from django.contrib import admin
 from chat.views import RoomViewSet, MessageViewSet
 from django.views.generic.base import TemplateView
-from users.views import GroupViewSet, CustomUserViewSet, LoginView, LogoutView
+from users.views import GroupViewSet, CustomUserViewSet, LogoutView, LoginView
 from .views import IndexView
 admin.autodiscover()
 
 router = routers.DefaultRouter()
 router.register(r'users', CustomUserViewSet)
-# router.register(r'groups', GroupViewSet)
-# router.register(r'users', UserViewSet)
 router.register(r'messages', MessageViewSet)
 router.register(r'rooms', RoomViewSet)
 
 
 urlpatterns = [
     # url(r'^.*$', IndexView.as_view(), name='index'),
-    url(r'^', include(router.urls)),
-    # url(r'^login/$', LoginView.as_view(), name='login'),
-    # url(r'^logout/$', LogoutView.as_view(), name='logout'),
+    url(r'^api/', include(router.urls)),
+    url(r'^login/$', LoginView.as_view(), name='login'),
+    url(r'^logout/$', LogoutView.as_view(), name='logout'),
     # url(r'^$', TemplateView.as_view(template_name='static/templates/authentication/login.html'), name="home"),
     # url(r'^search/', StudentViewSet.as_view()),
     # url(r'^api-auth/', include('rest_framework.urls',
     #                            namespace='rest_framework')),
     url(r'^admin/', include(admin.site.urls)),
-    # url(r'^auth/', include('djoser.urls.authtoken'))
+    url(r'^', include('users.urls')),
+    url(r'^rooms/', include('chat.urls')),
 ]

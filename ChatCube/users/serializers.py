@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from .models import User, Group, CustomUser
+from .models import Group, CustomUser
 from django.contrib.auth import update_session_auth_hash
 
 
@@ -31,18 +31,6 @@ class CustomUserSerializer(serializers.ModelSerializer):
             update_session_auth_hash(self.context.get('request'), instance)
 
             return instance
-
-
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ('id',
-                  'username',
-                  'password',
-                  'auth_level',
-                  'online',)
-        view_name = 'user-detail'
-
 
 class GroupSerializer(serializers.ModelSerializer):
     class Meta:

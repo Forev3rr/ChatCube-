@@ -1,6 +1,5 @@
 from django.contrib import admin
 from .models import (CustomUser,
-                     User,
                      Group)
 
 class CustomUserAdmin(admin.ModelAdmin):
@@ -10,14 +9,6 @@ class CustomUserAdmin(admin.ModelAdmin):
                      'auth_level']
 
 admin.site.register(CustomUser, CustomUserAdmin)
-
-# class UserAdmin(admin.ModelAdmin):
-#     list_display = ('username',
-#                     'password')
-#     search_fields = ['username',
-#                      'password']
-#
-# admin.site.register(User, UserAdmin)
 
 class GroupAdmin(admin.ModelAdmin):
     list_display = ('name',

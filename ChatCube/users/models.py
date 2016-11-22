@@ -33,31 +33,6 @@ class CustomUserManager(BaseUserManager):
         account.save()
         return account
 
-    # def _create_user(self, username, email, password,
-    #                  is_staff, is_superuser, **extra_fields):
-    #     """
-    #     Creates and saves a User with the given email and password.
-    #     """
-    #     now = timezone.now()
-    #     if not email:
-    #         raise ValueError('The given email must be set')
-    #     email = self.normalize_email(email)
-    #     user = self.model(username=username, email=email,
-    #                       is_staff=is_staff, is_active=True,
-    #                       is_superuser=is_superuser, **extra_fields)
-    #     user.set_password(password)
-    #     user.save(using=self._db)
-    #     return user
-    #
-    # def create_user(self, username, email, password=None, **extra_fields):
-    #     return self._create_user(username, email, password, False, False,
-    #                              **extra_fields)
-    #
-    # def create_superuser(self, username, email, password, **extra_fields):
-    #     return self._create_user(username, email, password, True, True,
-    #                              **extra_fields)
-
-
 class CustomUser(AbstractBaseUser, PermissionsMixin):
 
     username \
@@ -102,16 +77,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     def __unicode__(self):
         return self.username
 
-class User(models.Model):
-    # auto Id
-    username = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
-    auth_level = models.IntegerField(default=1)
-    # picture =
-    online = models.BooleanField(default=False)
-
-    def __str__(self):
-        return self.username
 
 class Group(models.Model):
     # auto Id

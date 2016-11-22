@@ -1,0 +1,7 @@
+{% extends "users/header.html" %}
+
+{% block content %}
+	<h3>{{room.name}}</h3>
+	<h6>on {{room.date}}</h6>
+	{{room.owner|safe|linebreaks}}
+{% endblock %}

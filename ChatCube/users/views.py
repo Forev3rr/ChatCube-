@@ -3,22 +3,18 @@ from rest_framework.response import Response
 from rest_framework import status, views
 from django.contrib.auth import authenticate, login, logout
 import json
-from .models import User, Group, CustomUser
-# from .permissions import IsAccountOwner
-from .serializers import UserSerializer, GroupSerializer, CustomUserSerializer
+from .models import Group, CustomUser
+from .serializers import GroupSerializer, CustomUserSerializer
+from django.shortcuts import render
 
 
 class LogoutView(views.APIView):
-    permission_classes = (permissions.IsAuthenticated,)
-
     def post(self, request, format=None):
         logout(request)
-
         return Response({}, status=status.HTTP_204_NO_CONTENT)
 
 
 class LoginView(views.APIView):
-
     def post(self, request, *args, **kwargs):
         data = request.data
         username = data.get('username', None)
@@ -40,19 +36,49 @@ class LoginView(views.APIView):
                 'message': 'Username/password combination invalid.'
             }, status=status.HTTP_401_UNAUTHORIZED)
 
+
+def index(request):
+    return render(request, 'users/home.html')
+
+
+def contact(request):
+    return render(request, 'users/basic.html', {'content':[request.user.username, request.user.email]})
+
+
+# def register(request):
+#     form = RegisterForm()
+#     if request.method == "POST":
+#         form = RegisterForm(request.POST) #if no files
+#         if form.is_valid():
+#             #do something if form is valid
+#     context = {
+#         'form': form
+#     }
+#     return render(request, "template.html", context)
+
+# def get_name(request):
+#     # if this is a POST request we need to process the form data
+#     if request.method == 'POST':
+#         # create a form instance and populate it with data from the request:
+#         user = CustomUser(request.POST)
+#         # check whether it's valid:
+#         if form.is_valid():
+#             # process the data in form.cleaned_data as required
+#             # ...
+#             # redirect to a new URL:
+#             return HttpResponseRedirect('/thanks/')
+#
+#     # if a GET (or any other method) we'll create a blank form
+#     else:
+#         form = NameForm()
+#
+#     return render(request, 'name.html', {'form': form})
+
+
 class CustomUserViewSet(viewsets.ModelViewSet):
     model = CustomUser
     serializer_class = CustomUserSerializer
     queryset = CustomUser.objects.all()
-
-    # def get_permissions(self):
-    #     if self.request.method in permissions.SAFE_METHODS:
-    #         return (permissions.AllowAny(),)
-    #
-    #     if self.request.method == 'POST':
-    #         return (permissions.AllowAny(),)
-    #
-    #     return (permissions.IsAuthenticated(), IsAccountOwner(),)
 
     def create(self, request):
         serializer = self.serializer_class(data=request.data)
@@ -66,16 +92,6 @@ class CustomUserViewSet(viewsets.ModelViewSet):
             'message': 'Account could not be created with received data.'
         }, status=status.HTTP_400_BAD_REQUEST)
 
-
-class UserViewSet(viewsets.ModelViewSet):
-    model = User
-    serializer_class = UserSerializer
-    queryset = User.objects.all()
-
-    # def get_queryset(self):
-    #     user = self.request.user
-    #     # return User.objects.filter(project__party__customuser=user)
-    #     return User.objects.filter(project__party__customuser=user)
 
 class GroupViewSet(viewsets.ModelViewSet):
     model = Group
