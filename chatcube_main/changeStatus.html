@@ -1,0 +1,46 @@
+<!DOCTYPE: html>
+<html>
+
+	<head>
+
+		<title>User Status Color Change</title>
+
+	</head>
+
+	<style>
+     #text{width:200px;height:200px;font-size:40px;line-height:40px;text-align: center;}
+     img{width:200px;height:200px;}
+    </style>
+    
+    <script type="text/javascript">
+	
+     window.onload=function(){
+      var statusBtn=document.getElementById("btn");
+      var statusImg=document.getElementById("img");
+      var statusText=document.getElementById("text");
+      var onOff=true;
+      statusBtn.onclick=function(){
+        if(onOff){
+         statusImg.src="greyStatus.png";
+         statusText.innerHTML="stealth";
+         onOff=false;
+        }
+        else{
+          statusImg.src="OnlineStatus.jpg";
+          statusText.innerHTML="online";
+          onOff=true;
+        }
+      }
+  
+    }
+    </script>
+    
+  </head>
+  
+  <body>
+    <input id="btn" type="button" name="" value="ChangeStatus"/>
+    <img id="img" src="OnlineStatus.jpg"/>
+    <p id="text">online</p>
+  
+  </body>
+</html>
