@@ -27,7 +27,6 @@ SECRET_KEY = '-sdm3qch^j@1^hq2zje4kzfjhb7-c)8ag^g473dac-uq8ls4wd'
 DEBUG = True
 ALLOWED_HOSTS = []
 
-LOGIN_REDIRECT_URL = '/base/'
 
 # Application definition
 
