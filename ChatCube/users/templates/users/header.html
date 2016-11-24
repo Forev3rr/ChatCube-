@@ -45,6 +45,11 @@
 				<li><a href='/base/'>Home</a></li>
 				<li><a href='/rooms/'>Room</a></li>
 				<li><a href='/base/info/'>Info</a></li>
+				  	{% for c in content %}
+				  		{% if c.is_staff == true %}
+				  				  <li><a href='/admin/'>Admin</a></li>
+				  		{% endif %}
+					{% endfor %}
 			  </ul>
 			</div> <!--well bs-sidebar affix-->
 		  </div> <!--col-sm-2-->

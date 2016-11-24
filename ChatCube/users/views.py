@@ -38,7 +38,7 @@ from django.shortcuts import render
 
 
 def index(request):
-    return render(request, 'users/home.html')
+    return render(request, 'users/home.html', {'content':[request.user.is_staff]})
 
 
 def contact(request):
@@ -50,17 +50,17 @@ class CustomUserViewSet(viewsets.ModelViewSet):
     serializer_class = CustomUserSerializer
     queryset = CustomUser.objects.all()
 
-    def create(self, request):
-        serializer = self.serializer_class(data=request.data)
-
-        if serializer.is_valid():
-            CustomUser.objects.create_user(**serializer.validated_data)
-            return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
-
-        return Response({
-            'status': 'Bad request',
-            'message': 'Account could not be created with received data.'
-        }, status=status.HTTP_400_BAD_REQUEST)
+    # def create(self, request):
+    #     serializer = self.serializer_class(data=request.data)
+    #
+    #     if serializer.is_valid():
+    #         CustomUser.objects.create_user(**serializer.validated_data)
+    #         return Response(serializer.validated_data, status=status.HTTP_201_CREATED)
+    #
+    #     return Response({
+    #         'status': 'Bad request',
+    #         'message': 'Account could not be created with received data.'
+    #     }, status=status.HTTP_400_BAD_REQUEST)
 
 
 class GroupViewSet(viewsets.ModelViewSet):

@@ -3,35 +3,58 @@ import re
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, PermissionsMixin
 from django.contrib.auth.models import BaseUserManager
-from django.utils import timezone
 from django.core import validators
-from django.utils.http import urlquote
+from django.utils import timezone
 
 class CustomUserManager(BaseUserManager):
 
-    def create_user(self, email, password=None, **kwargs):
+    def _create_user(self, username, email, password,
+                     is_staff, is_superuser, **extra_fields):
+        """
+        Creates and saves a User with the given email and password.
+        """
+        now = timezone.now()
         if not email:
-            raise ValueError('Users must have a valid email address.')
+            raise ValueError('The given email must be set')
+        email = self.normalize_email(email)
+        user = self.model(username=username, email=email,
+                          is_staff=is_staff, is_active=True,
+                          is_superuser=is_superuser, last_login=now,
+                          date_joined=now, **extra_fields)
+        user.set_password(password)
+        user.save(using=self._db)
+        return user
 
-        if not kwargs.get('username'):
-            raise ValueError('Users must have a valid username.')
+    def create_user(self, username, email, password=None, **extra_fields):
+        return self._create_user(username, email, password, False, False,
+                                 **extra_fields)
 
-        account = self.model(
-            email=self.normalize_email(email), username=kwargs.get('username')
-        )
-
-        account.set_password(password)
-        account.save()
-        return account
-
-    def create_superuser(self, email, password, **kwargs):
-        account = self.create_user(email, password, **kwargs)
-
-        account.is_admin = True
-        account.is_staff = True
-        account.is_superuser=True
-        account.save()
-        return account
+    def create_superuser(self, username, email, password, **extra_fields):
+        return self._create_user(username, email, password, True, True,
+                                 **extra_fields)
+    # def create_user(self, email, password=None, **kwargs):
+    #     if not email:
+    #         raise ValueError('Users must have a valid email address.')
+    #
+    #     if not kwargs.get('username'):
+    #         raise ValueError('Users must have a valid username.')
+    #
+    #     account = self.model(
+    #         email=self.normalize_email(email), username=kwargs.get('username')
+    #     )
+    #
+    #     account.set_password(password)
+    #     account.save()
+    #     return account
+    #
+    # def create_superuser(self, email, password, **kwargs):
+    #     account = self.create_user(email, password, **kwargs)
+    #
+    #     account.is_admin = True
+    #     account.is_staff = True
+    #     account.is_superuser=True
+    #     account.save()
+    #     return account
 
 class CustomUser(AbstractBaseUser, PermissionsMixin):
 
@@ -50,7 +73,6 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
                                 "already exists.", }
                            )
     email = models.EmailField(max_length=254)
-    auth_level = models.IntegerField(default=1)
     is_staff = models.BooleanField(default=False,
                                    help_text=('Designates whether the user can'
                                               ' log into this admin site. '
@@ -59,6 +81,7 @@ class CustomUser(AbstractBaseUser, PermissionsMixin):
     is_active = models.BooleanField(default=True,
                                     help_text=('Designates whether this user '
                                                'is online.'))
+    auth_level = models.IntegerField(default=1)
 
     objects = CustomUserManager()
     USERNAME_FIELD = 'username'
