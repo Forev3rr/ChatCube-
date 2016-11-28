@@ -1,0 +1,247 @@
+body {
+    font-family: bariol;
+    margin: 0;
+    padding: 0;
+    color: #e5e5e5;
+    background: #ff5d5d;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #e5e5e5;
+	
+	box-shadow: 0px 0px 10px #424242;
+}
+
+li {
+    float: right;
+
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 16px;
+    text-decoration: none;
+	color: #010101;
+}
+
+li a:hover {
+    background-color: #ff5d5d;
+}
+
+.header_left{
+	position: absolute;
+	top: 3px;
+	left: 3px;
+}
+
+.header_right{
+	position: absolute;
+	top: 3px;
+	right: 3px;
+}
+
+/* a class for the "logo" text */
+.logo{
+	margin: 10px;
+    font-size: 50px;
+    text-align: center;
+}
+
+/* makes a centered block for the login screen */
+.login_block {
+	margin:auto !important;
+	padding:10px;
+	text-align: center;
+	width: 350px;
+	min-height: 200px;
+	border-radius: 25px;
+	color: #424242;
+	background: #e5e5e5;
+	box-shadow: 0px 0px 10px #424242;
+}
+
+.abovemessages{
+	height: 8%;
+}
+
+/* makes the center block for the chat room screen*/
+.chat_block{
+	height: 80%;
+	width:450px;
+	margin:auto !important;
+	padding:10px;
+	text-align: left;
+	font-size: 20px;
+	border-radius: 25px;
+	color: #424242;
+	background: #e5e5e5;
+	box-shadow: 0px 0px 10px #424242;
+}
+
+.messages_div{
+	margin: 10px;
+	height: 80%;
+	border-bottom:solid 2px #424242;
+}
+
+/*area for the whole conversation*/
+.chat_conversation{
+	padding:10px;
+	text-align: left;
+	width: 100%;
+	height: 100%;
+	border: none;
+	color: #424242;
+	background: none;
+	resize: none;
+}
+
+
+.message-send-div{
+	position: relative;
+	width: 100%;
+	border-radius: 25px;
+	bottom: 0px;
+
+}
+
+/* area where you can write your messages */
+.message_textarea{
+	width: 70%;
+	height: 15%;
+	padding: 5px;
+	border: none;
+	background: none;
+	resize: none;
+	overflow: hidden;
+}
+
+textarea:focus{
+	outline-width: 0px;
+}
+
+/* input uses a seperate font from the body font must be changed again */
+input{
+	font-family: bariol;
+	font-size: 25px;
+}
+
+/* Gets rid of blue border around input while being used */
+input:focus{
+	outline-width: 0;
+}
+
+/* Changes the ugly input text boxes to our nice ones */
+input[type=text], input[type=password]{
+	margin-top: 20px;
+	padding: 10px;
+	background: none;
+	width: 200;
+	height: 40;
+	border: 0;
+	border-bottom: solid 2px #424242;
+}
+
+/* same as above but for the submit button */
+input[type=submit]{
+	float: right;
+	margin-top: 5px;
+	margin-right: 18px;
+	width: 100px;
+	height: 40;
+	border: 0;
+	border-radius: 15px;
+	color: #e5e5e5;
+	background: #424242;
+}
+
+/* when the submit button is clicke the colors are swapped */
+input[type=submit]:focus{
+	color: #424242;
+	background: #e5e5e5;
+}
+
+/* same as input*/
+button{
+	font-family: bariol;
+	font-size: 25px;
+	float: right;
+	margin-top: 0px;
+	margin-right: 18px;
+	width: 100px;
+	height: 30;
+	border: 0;
+	border-radius: 15px;
+	color: #e5e5e5;
+	background: #424242;
+}
+
+article{
+	height:24%;
+	background:none;
+	clear:both;
+}
+
+.dropdown-button{
+	cursor: pointer;
+}
+
+.dropdown{
+	position: absolute;
+	bottom: 5px;
+	right: 0px;
+	display: inline-block;
+}
+
+.dropdown-content{
+	display: none;
+	position: absolute;
+	bottom: 10px;
+	background: #e5e5e5;
+	width: 100px;
+	padding: 10px;
+	box-shadow: 0px 0px 5px #000000;
+	border-radius: 15px;
+}
+
+.dropdown:hover .dropdown-content{
+	display: block;
+}
+
+.dropdown-content li{
+	list-style-type: none;
+}
+
+
+
+footer{
+	height:20%;;
+	background: none;
+	clear:both;
+}
+.copyright_right{
+	position: absolute;
+	right: 3;
+	bottom: 3;
+
+}
+
+.copyright_left{
+	position: absolute;
+	left: 3;
+	bottom: 3;
+
+}
+
+/* Added Custom Font */ 
+@font-face{
+	font-family: bariol;
+	src: url(./resources/bariol_regular-webfont.ttf);
+}
+

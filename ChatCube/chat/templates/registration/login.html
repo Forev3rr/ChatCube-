@@ -1,10 +1,22 @@
-{% block title %}Login{% endblock %}
+<head>
+	<title>ChatCube+</title>
+	{% load staticfiles %}
+	<link rel="stylesheet" href="{% static 'user/css/chatcube.css' %}" type = "text/css"/>
+</head>
 
-{% block content %}
-  <h2>Login</h2>
-  <form method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit">Login</button>
-  </form>
-{% endblock %}
+<body>
+  
+  <article></article>
+
+  <div class="logo"> ChatCube+ </div>
+	<div class="login_block">
+
+  		<form method="post">
+    		{% csrf_token %}
+    		{{ form.as_p }}
+    		<button type="submit">Login</button>
+  		</form>
+		<br><br>
+  	</div>
+</body>
+
