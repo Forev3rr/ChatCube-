@@ -2,15 +2,16 @@
 
 
 {% block content %}
-	<!--<h3>{{room.name}}</h3>-->
-	<!--<h6>on {{room.date}}</h6>-->
-	<!--{{room.owner|safe|linebreaks}}-->
-	{% for c in content %}
-		<p>{{c}}</p>
+	{%for c in content%}
+		<div style="height:240px;width:480px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+			{%for f in c%}
+				<p>{{ f.sender }}: {{ f.message }}</p>
+			{% endfor %}
+		</div>
 	{% endfor %}
+	<p></p>
 	<form action="" method="post" accept-charset="utf-8">
 		{% csrf_token %}
-		<!--{{form.as_p}}-->
      	<label for="message">Message:</label><input type="text" name="message" value="" id="message" />
 		<p><input type="submit" value="Post"></p>
 	</form>
