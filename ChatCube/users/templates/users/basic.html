@@ -1,7 +1,9 @@
 {% extends "users/header.html" %}
 
 {% block content %}
-	{% for c in content %}
-		<p>{{c}}</p>
-	{% endfor %}
+	<p>Username: {{content.0}}</p>
+	<p>Email: {{content.1}}</p>
+	<!--{% for c in content %}-->
+		<!--<p>{{c}}</p>-->
+	<!--{% endfor %}-->
 {% endblock %}
