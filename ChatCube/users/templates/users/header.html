@@ -10,14 +10,7 @@
 <body>
 	    <ul>
             <a style="color: #ff5d5d; font-size: 42px;"> ChatCube+</a>
-		   
-			
-			
-			    {% for c in content %}
-				    {% if c.is_staff == true %}
-				  	    <li><a href='/admin/'>Admin</a></li>
-				  	{% endif %}
-				{% endfor %}
+			<li><a href='/admin/'>Admin</a></li>
             <li><a href='/base/info/'>Info</a></li>
             <li><a href='/rooms/'>Room</a></li>
              <li><a href='/base/'>Home</a></li>
@@ -27,11 +20,6 @@
 		    {% block content %}
 			{% endblock %}
 	</div>
-	<footer>
-		<div class="container-fluid" style='margin-left:15px'>
-			<p><a href="#" target="blank">Contact</a></p>
-		</div>
-	</footer>
 
 </body>
 
