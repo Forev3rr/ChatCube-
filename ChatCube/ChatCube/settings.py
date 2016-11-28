@@ -29,6 +29,8 @@ ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = '/base/'
 
+SESSION_COOKIE_SECURE = False
+
 # Application definition
 
 # AUTHENTICATION_BACKENDS = [

@@ -1,6 +1,8 @@
 from __future__ import unicode_literals
 from django.db import models
 from users.models import  CustomUser
+from django.forms import ModelForm
+from django import forms
 
 # Create your models here.
 
@@ -31,3 +33,10 @@ class Message(models.Model):
 
     def __str__(self):
         return self.message
+
+
+class MessageForm(ModelForm):
+    class Meta:
+        model = Message
+        fields = ['message']
+
