@@ -2,11 +2,10 @@
 
 
 {% block content %}
-	<!--<h3>{{room.name}}</h3>-->
-	<!--<h6>on {{room.date}}</h6>-->
-	<!--{{room.owner|safe|linebreaks}}-->
-	{% for c in content %}
-		<p>{{c}}</p>
+	{%for c in content%}
+		{%for f in c%}
+			<p>{{ f.sender }}: {{ f.message }}</p>
+		{% endfor %}
 	{% endfor %}
 	<form action="" method="post" accept-charset="utf-8">
 		{% csrf_token %}
