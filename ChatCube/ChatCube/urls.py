@@ -25,6 +25,7 @@ from chat.views import RoomViewSet, MessageViewSet
 from django.views.generic.base import TemplateView
 from users.views import GroupViewSet, CustomUserViewSet
 from django.contrib.auth import views as auth_views
+# from django.contrib.auth.views import password_reset
 admin.autodiscover()
 
 router = routers.DefaultRouter()
@@ -36,6 +37,7 @@ router.register(r'rooms', RoomViewSet)
 urlpatterns = [
     url(r'^api/', include(router.urls)),
     url(r'^$', auth_views.login, name='login'),
+    # (r'^reset/$', password_reset, {'post_reset_redirect' : '/base/info/'}),
     # url(r'^logout/$', auth_views.logout, name='logout'),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^base/', include('users.urls')),

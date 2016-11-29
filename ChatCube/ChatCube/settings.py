@@ -29,7 +29,7 @@ DEBUG = True
 ALLOWED_HOSTS = []
 
 LOGIN_REDIRECT_URL = '/base/'
-admin.site.site_url = '/base'
+admin.site.site_url = '/base/'
 
 SESSION_COOKIE_SECURE = False
 
