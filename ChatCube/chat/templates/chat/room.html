@@ -2,8 +2,9 @@
 
 
 {% block content %}
+	{% load staticfiles %}
 	{%for c in content%}
-		<div style="height:500px;
+		<div id="scrolly" style="height:400px;
                     width:430px;
                     font:16px/26px Georgia, Garamond, Serif;
                     overflow:auto; 
@@ -15,6 +16,7 @@
 				<p><em style="color:#ff5d5d;">{{ f.sender }}</em>: {{ f.message }}</p>
 			{% endfor %}
 		</div>
+    <script type="text/javascript" src="{% static 'user/js/chat.js' %}"></script>
 	{% endfor %}
 	<form action="" method="post" accept-charset="utf-8" autocomplete="off">
 		{% csrf_token %}
