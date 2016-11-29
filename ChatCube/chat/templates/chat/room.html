@@ -3,9 +3,16 @@
 
 {% block content %}
 	{%for c in content%}
-		<div style="height:400px;width:450px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:hidden;">
+		<div style="height:500px;
+                    width:430px;
+                    font:16px/26px Georgia, Garamond, Serif;
+                    overflow:auto; 
+                    background: #ffffff;
+                    border-radius: 25px;
+                    padding: 10px;
+                    word-wrap: break-word;">
 			{%for f in c%}
-				<p>{{ f.sender }}: {{ f.message }}</p>
+				<p><em style="color:#ff5d5d;">{{ f.sender }}</em>: {{ f.message }}</p>
 			{% endfor %}
 		</div>
 	{% endfor %}
