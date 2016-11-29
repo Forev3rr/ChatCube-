@@ -51,11 +51,11 @@ admin.site.register(CustomUser, CustomUserAdmin)
 #
 # admin.site.register(CustomUser, CustomUserAdmin)
 
-class GroupAdmin(admin.ModelAdmin):
-    list_display = ('name',
-                    'password')
-    search_fields = ['name',
-                     'password']
-
-admin.site.register(Group, GroupAdmin)
+# class GroupAdmin(admin.ModelAdmin):
+#     list_display = ('name',
+#                     'password')
+#     search_fields = ['name',
+#                      'password']
+#
+# admin.site.register(Group, GroupAdmin)
 

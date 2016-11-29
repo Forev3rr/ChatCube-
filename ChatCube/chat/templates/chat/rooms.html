@@ -1,6 +1,7 @@
 {% extends "users/header.html" %}
 
 {% block content %}
+	<a style="color:#ff5d5d;"href="/admin/chat/room/add/"> Add room</a></h5>
 	{% for room in object_list %}
 	  <h5>{{ room.date|date:"Y-m-d" }}      <a style="color:#ff5d5d;"href="/rooms/{{room.id}}"> {{room.name}}</a></h5>
 	{% endfor %}
