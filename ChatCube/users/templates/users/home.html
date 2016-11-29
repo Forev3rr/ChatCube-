@@ -1,6 +1,8 @@
 {% extends "users/header.html" %}
 
 {% block content %}
-<p>Welcome to ChatCube+!</p>
+{% load staticfiles %}
+<img class="logoimg" src="{% static 'user/css/resources/ChatcubeLogo.png' %}" />
+<p style="text-align:center;">Welcome to ChatCube+</p>
 {% include "users/includes/htmlsnippet.html" %}
 {% endblock %}

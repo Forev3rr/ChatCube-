@@ -3,17 +3,17 @@
 
 {% block content %}
 	{%for c in content%}
-		<div style="height:240px;width:480px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:auto;">
+		<div style="height:400px;width:450px;border:1px solid #ccc;font:16px/26px Georgia, Garamond, Serif;overflow:hidden;">
 			{%for f in c%}
 				<p>{{ f.sender }}: {{ f.message }}</p>
 			{% endfor %}
 		</div>
 	{% endfor %}
-	<p></p>
-	<form action="" method="post" accept-charset="utf-8">
+	<form action="" method="post" accept-charset="utf-8" autocomplete="off">
 		{% csrf_token %}
      	<label for="message">Message:</label><input type="text" name="message" value="" id="message" />
-		<p><input type="submit" value="Post"></p>
+		<input type="submit" value="Post" style="position: relative; top: 30px;">
+        <br />
 	</form>
 {% endblock %}
 

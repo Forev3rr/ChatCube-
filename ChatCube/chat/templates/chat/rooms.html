@@ -2,6 +2,6 @@
 
 {% block content %}
 	{% for room in object_list %}
-	  <h5>{{ room.date|date:"Y-m-d" }}<a href="/rooms/{{room.id}}"> {{room.name}}</a></h5>
+	  <h5>{{ room.date|date:"Y-m-d" }}      <a style="color:#ff5d5d;"href="/rooms/{{room.id}}"> {{room.name}}</a></h5>
 	{% endfor %}
 {% endblock %}
