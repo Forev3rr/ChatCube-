@@ -5,15 +5,21 @@ from .models import (Message,
 
 class MessageAdmin(admin.ModelAdmin):
     list_display = ('message',
-                    'sender')
-    search_fields = ['message',
+                    'sender',
+                    'targets')
+    list_filter = ('targets',)
+    search_fields = ['targets',
                      'sender']
 
 admin.site.register(Message, MessageAdmin)
 
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ('name',)
-    search_fields = ['name']
+    list_display = ('name',
+                    'owner')
+    search_fields = ['name',
+                     'owner']
+    list_filter = ('owner',)
+
 
 admin.site.register(Room, RoomAdmin)
 
