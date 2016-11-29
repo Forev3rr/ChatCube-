@@ -9,7 +9,6 @@ from django import forms
 class Room(models.Model):
     # auto Id
     name = models.CharField(max_length=255)
-    password = models.CharField(max_length=255)
     owner = models.ForeignKey(CustomUser,
                               related_name='owner',
                               default=1,)

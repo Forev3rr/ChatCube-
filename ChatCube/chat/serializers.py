@@ -6,7 +6,6 @@ class RoomSerializer(serializers.HyperlinkedModelSerializer):
         model = Room
         fields = ('id',
                   'name',
-                  'password',
                   'owner',
                   'participants',
                   'message_set')

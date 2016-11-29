@@ -12,8 +12,7 @@ class MessageAdmin(admin.ModelAdmin):
 admin.site.register(Message, MessageAdmin)
 
 class RoomAdmin(admin.ModelAdmin):
-    list_display = ('name',
-                    'password')
+    list_display = ('name',)
     search_fields = ['name']
 
 admin.site.register(Room, RoomAdmin)
